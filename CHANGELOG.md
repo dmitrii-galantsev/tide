@@ -1,5 +1,12 @@
 # Changelog
 
+## [v6.2.1][] (Apr 02 2026)
+
+### Performance
+
+- Replace universal variable IPC with tmpfile + SIGUSR1 to eliminate file lock contention on `fish_variables` when multiple fish shells are open concurrently. Tmpfile stored in `$XDG_RUNTIME_DIR/tide/` (tmpfs, mode 0700) with fallback to `/tmp/tide-$UID/` when `$XDG_RUNTIME_DIR` is unavailable
+- Change `_tide_left_items` and `_tide_right_items` from universal to global scope since they are recomputed every shell startup
+
 ## [v6.2.0][] (Aug 02 2025)
 
 ### Features
