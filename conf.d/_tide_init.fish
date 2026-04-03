@@ -1,5 +1,5 @@
 function _tide_init_install --on-event _tide_init_install
-    set -U VIRTUAL_ENV_DISABLE_PROMPT true
+    set -g VIRTUAL_ENV_DISABLE_PROMPT true
 
     source (functions --details _tide_sub_configure)
     _load_config lean
@@ -34,7 +34,7 @@ function _tide_init_update --on-event _tide_init_update
     end
 
     # Set (disable) the new jobs variable
-    set -q tide_jobs_number_threshold || set -U tide_jobs_number_threshold 1000
+    set -q tide_jobs_number_threshold || set -g tide_jobs_number_threshold 1000
 end
 
 function _tide_init_uninstall --on-event _tide_init_uninstall

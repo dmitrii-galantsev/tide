@@ -31,7 +31,7 @@ function _tide_finish
 
     # Set the real variables
     for fakeVar in (set --names | string match -r "^fake_tide.*")
-        set -U (string replace 'fake_' '' $fakeVar) $$fakeVar
+        set -g (string replace 'fake_' '' $fakeVar) $$fakeVar
     end
 
     # Make sure old prompt won't display
